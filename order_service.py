@@ -26,7 +26,7 @@ def validate_order(payload):
     item_id = payload.get("item_id")
     quantity = payload.get("quantity")
     if not isinstance(item_id, str) or not item_id or isinstance(quantity, bool) or not isinstance(quantity, int) or quantity <= 0:
-        return None, jsonify({"error": "item_id must be non-empty and quantity must be a positive integer"}), 400
+        return None, (jsonify({"error": "item_id must be non-empty and quantity must be a positive integer"}), 400)
     return {"item_id": item_id, "quantity": quantity}, None
 
 
